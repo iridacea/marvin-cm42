@@ -1,0 +1,25 @@
+image: node:latest
+
+test:
+  script:
+    - npm install
+    - npm test
+  cache:
+    key: ${CI_PROJECT_ID}
+    paths:
+      - node_modules/
+  only:
+    - master
+    - merge_requests
+
+
+production:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=marvin-cm42 --api-key=$HEROKU_PRODUCTION_API_KEY
+  only:
+    - master
