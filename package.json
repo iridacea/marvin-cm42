@@ -22,7 +22,7 @@
     "hubot-rules": "^0.1.2",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
-    "luxon": "^1.27.0",
+    "luxon": "^1.28.1",
     "numeral": "^2.0.6"
   },
   "engines": {
